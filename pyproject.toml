@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "quiqui-ladies-py-workshop"
+version = "0.1.0"
+description = ""
+authors = ["Marcela <mrssolaris.dev@gmail.com>"]
+readme = "README.md"
+packages = [{include = "quiqui_ladies_py_workshop"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+SQLAlchemy = "^2.0.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
