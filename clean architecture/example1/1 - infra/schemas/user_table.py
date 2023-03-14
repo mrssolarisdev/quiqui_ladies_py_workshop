@@ -16,4 +16,6 @@ user_table = Table(
     Column("status", Enum(UserStatusEnum), default=UserStatusEnum.ACTIVE, server_default=UserStatusEnum.ACTIVE),
 )
 
-Index("first_last_name_idx", user_table.c.first_name, user_table.c.last_name)
+# Disclaimer: We're creating an index on the combination of columns we are going to use the most, but it is not safe to assume a user can be identified by just their first and last name. 
+# This is just an example, always use an information that uniquely identifies the user.
+Index("first_last_name_idx", user_table.c.first_name, user_table.c.last_name) 
