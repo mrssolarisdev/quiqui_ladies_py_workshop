@@ -14,6 +14,7 @@ class User:
     
     def set_user_status(self, status):
         self.status = status
-
-user = User(id=1, first_name="Mariana", last_name="Coelho", user_name="mari_coelho_09", status=UserStatusEnum.ACTIVE)
-print(user.fullname)
+        
+# This is an element of the domain layer the lowest of all layers. It includes bussiness logic and data structures of the system.
+# It basically encapsulates the core logic of our application. We can have various elements in this layer, like: enums, classes, 
+# interfaces, etc. As long as they are responsible for enforcing bussiness specific logic and constraints.
