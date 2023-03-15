@@ -9,6 +9,7 @@ packages = [{include = "quiqui_ladies_py_workshop"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 SQLAlchemy = "^2.0.6"
+fastapi = "^0.94.1"
 
 
 [build-system]
