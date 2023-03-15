@@ -2,7 +2,7 @@ from enum import Enum
 
 from sqlalchemy import Metadata, Table, Column, Integer, String, Index
 
-from enums.user_status_enum import UserStatusEnum
+from domain.enums.user_status_enum import UserStatusEnum
 
 metadata_obj = Metadata()
 
