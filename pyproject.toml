@@ -10,6 +10,7 @@ packages = [{include = "quiqui_ladies_py_workshop"}]
 python = "^3.10"
 SQLAlchemy = "^2.0.6"
 fastapi = "^0.94.1"
+dynaconf = "^3.1.12"
 
 
 [build-system]
