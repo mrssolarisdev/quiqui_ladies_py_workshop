@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, insert
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from config import settings
 
@@ -18,5 +18,15 @@ class UserRepositoryMySql(UserRepositoryMeta):
         self.session_builder = sessionmaker(bind=self.engine)
         self.session = self.session_builder()
 
-
-        
+            
+    async def add_new_user(self, user: User) -> User:
+        with self.session as conn:
+            conn.execute(
+                user_table.insert(
+                    first_name=user.first_name, 
+                    last_name=user.last_name, 
+                    user_name=user.user_name, 
+                    status=user.status
+                )
+            )
+            conn.commit()
