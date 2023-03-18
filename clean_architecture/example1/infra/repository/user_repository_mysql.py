@@ -10,6 +10,7 @@ from infra.schemas.user_table import user_table
 class UserRepositoryMySql(UserRepositoryMeta):
     def __init__(self):
         # Always following the pattern: dialect+driver://username:password@hostname:port/database_name
+        # TODO: create a factory for building that and shot it as an example.
         self.engine = create_engine(
             f"mysql+mysqlconnector://{settings.database.USERNAME}:"
             f"{settings.database.PASSWORD}@{settings.database.HOST}:"
@@ -30,3 +31,9 @@ class UserRepositoryMySql(UserRepositoryMeta):
                 )
             )
             conn.commit()
+
+    def get_user(self, user_id: int) -> User:
+        with self.session as conn:
+            retrieved_user = conn.scalar(user_table.select().where(user_table.c.id == user_id))
+            return retrieved_user
+        
